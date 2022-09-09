@@ -76,21 +76,20 @@ def poll(interval):
     procs_status = {}
     for p in psutil.process_iter():
         try:
-            print(p)
-#            p.dict = p.as_dict(['username', 'get_nice', 'get_memory_info',
-#                                'get_memory_percent', 'get_cpu_percent',
-#                                'get_cpu_times', 'name', 'status'])
+            p.dict = p.as_dict(['username', 'get_nice', 'get_memory_info',
+                                'get_memory_percent', 'get_cpu_percent',
+                                'get_cpu_times', 'name', 'status'])
             try:
-                procs_status['status'] += 1
+                procs_status[p.dict['status']] += 1
             except KeyError:
-                procs_status['status'] = 1
+                procs_status[p.dict['status']] = 1
         except psutil.NoSuchProcess:
             pass
         else:
             procs.append(p)
 
     # return processes sorted by CPU percent usage
-    processes = sorted(procs, key=lambda p: 'cpu_percent', reverse=True)
+    processes = sorted(procs, key=lambda p: p.dict['cpu_percent'], reverse=True)
     return (processes, procs_status)
 
 def print_header(procs_status, num_procs):
@@ -136,7 +135,7 @@ def print_header(procs_status, num_procs):
     st.sort(key=lambda x: x[:3] in ('run', 'sle'), reverse=1)
     print_line(" Processes: %s (%s)" % (num_procs, ' '.join(st)))
     # load average, uptime
-    uptime = datetime.now() - datetime.fromtimestamp(psutil.boot_time())
+    uptime = datetime.now() - datetime.fromtimestamp(psutil.BOOT_TIME)
     av1, av2, av3 = os.getloadavg()
     line = " Load average: %.2f %.2f %.2f  Uptime: %s" \
             % (av1, av2, av3, str(uptime).split('.')[0])
@@ -155,8 +154,8 @@ def refresh_window(procs, procs_status):
     for p in procs:
         # TIME+ column shows process CPU cumulative time and it
         # is expressed as: "mm:ss.ms"
-        if p.cpu_times() != None:
-            ctime = timedelta(seconds=sum(p.cpu_times()))
+        if p.dict['cpu_times'] != None:
+            ctime = timedelta(seconds=sum(p.dict['cpu_times']))
             ctime = "%s:%s.%s" % (ctime.seconds // 60 % 60,
                                   str((ctime.seconds % 60)).zfill(2),
                                   str(ctime.microseconds)[:2])
