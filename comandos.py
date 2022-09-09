@@ -1,5 +1,7 @@
 import shlex, subprocess, os, time
-
+from psutil import Process
+from threading import Thread
+from os import getpid
 
 #command_line = 'sudo apt-get install python3 -y'
 
@@ -22,8 +24,10 @@ def printlog(prompt):
 sec, prompt))
 
 
-printlog("Esto es un error")
-
-print (os.POSIX_SPAWN_OPEN, os.POSIX_SPAWN_CLOSE)
-print (os.P_WAIT)
 print (os.times())
+
+
+p = Process(getpid())
+print(p)
+
+print(p.cpu_percent) 
