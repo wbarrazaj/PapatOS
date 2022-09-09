@@ -13,7 +13,10 @@ import sys
 from datetime import datetime
 
 import psutil
-from psutil._compat import print_
+#from psutil._compat import print_
+
+def print_(msg):
+    print(msg)
 
 
 def main():
