@@ -5,11 +5,11 @@ import shlex, subprocess, os, time
 
 command_line = 'df -h'
 args = shlex.split(command_line)
-print (args)
-subprocess.call(args)
+#print (args)
+#subprocess.call(args)
 
 a=subprocess.getoutput('ls /bin/ls')
-print (a)
+#print (a)
 
 print (os.uname())
 
@@ -23,3 +23,7 @@ sec, prompt))
 
 
 printlog("Esto es un error")
+
+print (os.POSIX_SPAWN_OPEN, os.POSIX_SPAWN_CLOSE)
+print (os.P_WAIT)
+print (os.times())
