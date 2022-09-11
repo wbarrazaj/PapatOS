@@ -33,13 +33,3 @@ def printlog(prompt):
     year, mon, mday, hour, min, sec, wday, yday, isdst = time.localtime()
     print("%04d-%02d-%02d %02d:%02d:%02d %s" % (year, mon , mday, hour, min, 
 sec, prompt))
-
-
-print_("Hola")
-
-printlog("Error 111")
-
-print(bytes2human(1024*1024*1024*1024*1024))
-
-printlog("Hola")
-

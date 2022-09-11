@@ -8,10 +8,9 @@
 A clone of 'free' cmdline utility.
 """
 
+from unittest import FunctionTestCase
 import psutil
-
-def print_(msg):
-    print(msg)
+from modulos.funciones import print_ , bytes2human , printlog
 
 def main():
     virt = psutil.virtual_memory()
