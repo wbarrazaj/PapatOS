@@ -6,9 +6,8 @@ from datetime import datetime, timedelta
 
 
 def bytes2human(n, format="%(value).1f%(symbol)s"):
-    """Used by various scripts. See:
-    http://goo.gl/zeJZl
-
+    """
+    Combierte a valor humano los bytes a M, G , etc
     >>> bytes2human(10000)
     '9.8K'
     >>> bytes2human(100001221)
@@ -26,10 +25,16 @@ def bytes2human(n, format="%(value).1f%(symbol)s"):
 
 
 def print_(msg):
+    """
+        Funcion de impresion normal
+    """
     print(msg)
 
 
 def printlog(prompt):
+    """
+        Funcion para imprimir logs 
+    """
     year, mon, mday, hour, min, sec, wday, yday, isdst = time.localtime()
     print("%04d-%02d-%02d %02d:%02d:%02d %s" % (year, mon , mday, hour, min, 
 sec, prompt))
