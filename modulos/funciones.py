@@ -1,3 +1,5 @@
+#IMPORTAMOS LIBRERIAS.
+
 import os
 import sys
 import psutil
@@ -5,6 +7,7 @@ import time
 from datetime import datetime, timedelta
 
 
+#FUNCION PARA REPRESENTAR TAMAÑOS EN BITS.
 def bytes2human(n, format="%(value).1f%(symbol)s"):
     """
     Combierte a valor humano los bytes a M, G , etc
