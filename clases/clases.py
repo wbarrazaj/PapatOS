@@ -70,7 +70,7 @@ class Server:
         pass
     
     def uso_Memoria (self):
-        print("="*20, "Memory Information", "="*20)
+        print("="*10, "Memory Information", "="*10)
         svmem = psutil.virtual_memory()
         print(f"Memoria Total       : {self.Memory_Total}")
         print(f"--->Available       : {get_size(svmem.available)}")
@@ -83,4 +83,23 @@ class Server:
         print(f"--->Used            : {get_size(swap.used)}")
         print(f"--->Percentage      : {swap.percent}%")
 
-
+    def uso_Disco (self):
+        #INFORMACIÓN DEL DISCO DURO
+        print("="*40, "Disk Information", "="*40)
+        print("Partitions and Usage:")
+        partitions = psutil.disk_partitions()
+        for partition in partitions:
+            print(f"=== Device: {partition.device} ===")
+            print(f"  Mountpoint: {partition.mountpoint}")
+            print(f"  File system type: {partition.fstype}")
+            try:
+                partition_usage = psutil.disk_usage(partition.mountpoint)
+            except PermissionError:
+                continue
+            print(f"  Total Size: {get_size(partition_usage.total)}")
+            print(f"  Used: {get_size(partition_usage.used)}")
+            print(f"  Free: {get_size(partition_usage.free)}")
+            print(f"  Percentage: {partition_usage.percent}%")
+        disk_io = psutil.disk_io_counters()
+        print(f"Total read: {get_size(disk_io.read_bytes)}")
+        print(f"Total write: {get_size(disk_io.write_bytes)}")
