@@ -47,7 +47,7 @@ class Server:
         self.Cpu_Max_Freq = Cpu_Freq.max
         self.Cpu_Min_Freq = Cpu_Freq.min
         self.Cpu_Current_Freq = Cpu_Freq.current
-        self.Memory_Total = get_size(ServerMem.total)
+        self.Memory_Total = bytes2human(ServerMem.total)
 
     def print_Server(self):
         print(f"System              : {self.System}")
