@@ -8,3 +8,5 @@ Servidor = Server()
 Servidor.print_Server()
 
 Servidor.uso_Memoria()
+
+Servidor.uso_Disco()
