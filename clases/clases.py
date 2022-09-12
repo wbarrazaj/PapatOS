@@ -73,14 +73,14 @@ class Server:
         print("="*20, "Memory Information", "="*20)
         svmem = psutil.virtual_memory()
         print(f"Total               : {bytes2human(self.Memory_Total)}")
-        print(f"Available           : {bytes2human(svmem.available)}")
-        print(f"Used                : {bytes2human(svmem.used)}")
+        print(f"Available           : {get_size(svmem.available)}")
+        print(f"Used                : {get_size(svmem.used)}")
         print(f"Percentage          : {svmem.percent}%")
         print("="*20, "SWAP", "="*20)
         swap = psutil.swap_memory()
         print(f"Total               : {bytes2human(self.Swap_Total)}")
-        print(f"Free                : {bytes2human(swap.free)}")
-        print(f"Used                : {bytes2human(swap.used)}")
+        print(f"Free                : {get_size(swap.free)}")
+        print(f"Used                : {get_size(swap.used)}")
         print(f"Percentage          : {swap.percent}%")
 
 
