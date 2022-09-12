@@ -33,18 +33,28 @@ class Server:
 
     def __init__(self):
         uname = platform.uname()
+        Cpu_Freq = psutil.cpu_freq()
         self.System=uname.system
         self.Node_Name=uname.node
         self.Release=uname.release
         self.Version=uname.version
         self.Machine=uname.machine
         self.Processor=uname.processor
+        self.Physical_cores=psutil.cpu_count(logical=False)
+        self.Total_cores=psutil.cpu_count(logical=True)
+        self.Cpu_Max_Freq = Cpu_Freq.max
+        self.Cpu_Min_Freq = Cpu_Freq.min
+        self.Cpu_Current_Freq = Cpu_Freq.current
 
     def print_Server(self):
-        print(f"System: {self.System}")
-        print(f"Node Name: {self.Node_Name}")
-        print(f"Release: {self.Release}")
-        print(f"Version: {self.Version}")
-        print(f"Machine: {self.Machine}")
-        print(f"Processor: {self.Processor}")
-
+        print(f"System              : {self.System}")
+        print(f"Node Name           : {self.Node_Name}")
+        print(f"Release             : {self.Release}")
+        print(f"Version             : {self.Version}")
+        print(f"Machine             : {self.Machine}")
+        print(f"Processor           : {self.Processor}")
+        print(f"Physical_cores      : {self.Physical_cores}")
+        print(f"Totalcores          : {self.Total_cores}")
+        print(f"Max Frequency       : {self.Cpu_Max_Freq:.2f}Mhz")
+        print(f"Min Frequency       : {self.Cpu_Min_Freq:.2f}Mhz")
+        print(f"Current Frequency   : {self.Cpu_Current_Freq:.2f}Mhz")
