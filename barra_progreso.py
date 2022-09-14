@@ -13,4 +13,4 @@ for i in range(100):
 
 from tqdm import tqdm
 for i in tqdm(range(100),ascii=True):
-    time.sleep(0)
+    time.sleep(0.1)
