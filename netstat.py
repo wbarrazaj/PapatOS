@@ -12,8 +12,7 @@ import socket
 from socket import AF_INET, SOCK_STREAM, SOCK_DGRAM
 
 import psutil
-from psutil._compat import print_
-
+from modulos.funciones import print_ 
 
 AD = "-"
 AF_INET6 = getattr(socket, 'AF_INET6', object())
