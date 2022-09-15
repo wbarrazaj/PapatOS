@@ -6,7 +6,7 @@ from modulos.funciones import print_ , bytes2human , printlog
 from clases.clases import Server
 #import platform
 
-#Servidor = Server()
+Servidor = Server()
 
 #Servidor.print_Server()
 
