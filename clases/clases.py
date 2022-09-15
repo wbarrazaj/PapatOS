@@ -125,20 +125,6 @@ class Server:
         print(f"Total Bytes Sent: {get_size(net_io.bytes_sent)}")
         print(f"Total Bytes Received: {get_size(net_io.bytes_recv)}")
 
+
     def test_users(self):
-        users = psutil.users()
-        #self.assertNotEqual(users, [])
-        for user in users:
-            assert user.name, user
-            self.assertIsInstance(user.name, str)
-            self.assertIsInstance(user.terminal, (str, type(None)))
-            if user.host is not None:
-                self.assertIsInstance(user.host, (str, type(None)))
-            user.terminal
-            user.host
-            assert user.started > 0.0, user
-            datetime.datetime.fromtimestamp(user.started)
-            if WINDOWS or OPENBSD:
-                self.assertIsNone(user.pid)
-            else:
-                psutil.Process(user.pid) 
+            self.execute(psutil.users) 
