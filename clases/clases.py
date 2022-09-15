@@ -129,6 +129,7 @@ class Server:
     def vmstat(stat):
         out = os.system("vmstat -s")
         for line in out.split("\n"):
+            out.__dict__()
             line = line.strip()
             if stat in line:
                 return int(line.split(' ')[0])
