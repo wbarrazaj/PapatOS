@@ -16,7 +16,7 @@ Servidor.uso_Memoria()
 
 #Servidor.uso_Red()
 
-#Servidor.test_users()
+Servidor.vmstat()
 
 print("Termino")
 print()

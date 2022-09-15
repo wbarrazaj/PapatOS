@@ -126,5 +126,11 @@ class Server:
         print(f"Total Bytes Received: {get_size(net_io.bytes_recv)}")
 
 
-    def test_users(self):
-            self.execute(psutil.users) 
+    def vmstat(stat):
+        out = os.system("vmstat -s")
+        for line in out.split("\n"):
+            line = line.strip()
+            if stat in line:
+                return int(line.split(' ')[0])
+        raise ValueError("can't find %r in 'vmstat' output" % stat)
+

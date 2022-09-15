@@ -5,6 +5,7 @@ import sys
 import psutil
 import time
 from datetime import datetime, timedelta
+import subprocess
 
 
 #FUNCION PARA REPRESENTAR TAMAÑOS EN BITS.
@@ -50,5 +51,4 @@ def get_size(bytes, suffix="B"):
         if bytes < factor:
             return f"{bytes:.2f}{unit}{suffix}"
         bytes /= factor
-
 
