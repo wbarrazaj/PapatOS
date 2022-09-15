@@ -217,11 +217,11 @@ def refresh_window(procs, procs_status):
 
 def main():
     try:
-        interval = 1
+        interval = 0
         while 1:
             args = poll(interval)
             refresh_window(*args)
-            interval = 1
+            interval = 1.5
     except (KeyboardInterrupt, SystemExit):
         pass
 
