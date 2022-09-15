@@ -217,7 +217,7 @@ def refresh_window(procs, procs_status):
 
 def main():
     try:
-        interval = 0
+        interval = 1
         while 1:
             args = poll(interval)
             refresh_window(*args)
