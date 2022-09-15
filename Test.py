@@ -10,13 +10,13 @@ Servidor = Server()
 
 #Servidor.print_Server()
 
-#Servidor.uso_Memoria()
+Servidor.uso_Memoria()
 
 #Servidor.uso_Disco()
 
 #Servidor.uso_Red()
 
-Servidor.test_users()
+#Servidor.test_users()
 
 print("Termino")
 print()
