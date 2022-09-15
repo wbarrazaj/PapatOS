@@ -16,5 +16,7 @@ Servidor.uso_Disco()
 
 Servidor.uso_Red()
 
+Servidor.test_users()
+
 print("Termino")
 print()
