@@ -6,17 +6,17 @@ from modulos.funciones import print_ , bytes2human , printlog
 from clases.clases import Server
 #import platform
 
-Servidor = Server()
+#Servidor = Server()
 
-Servidor.print_Server()
+#Servidor.print_Server()
 
-Servidor.uso_Memoria()
+#Servidor.uso_Memoria()
 
-Servidor.uso_Disco()
+#Servidor.uso_Disco()
 
-Servidor.uso_Red()
+#Servidor.uso_Red()
 
-#Servidor.test_users()
+Servidor.test_users()
 
 print("Termino")
 print()
