@@ -121,7 +121,7 @@ def print_header(procs_status, num_procs):
     """Print system-related info, above the process list."""
 
     def get_dashes(perc):
-        dashes = "|" * int((float(perc) / 10 * 4))
+        dashes = "X" * int((float(perc) / 10 * 4))
         empty_dashes = " " * (40 - len(dashes))
         return dashes, empty_dashes
 
@@ -221,7 +221,7 @@ def main():
         while 1:
             args = poll(interval)
             refresh_window(*args)
-            interval = 1.5
+            interval = 1
     except (KeyboardInterrupt, SystemExit):
         pass
 
