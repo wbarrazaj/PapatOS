@@ -121,7 +121,7 @@ def print_header(procs_status, num_procs):
     """Print system-related info, above the process list."""
 
     def get_dashes(perc):
-        dashes = "X" * int((float(perc) / 10 * 4))
+        dashes = "|" * int((float(perc) / 10 * 4))
         empty_dashes = " " * (40 - len(dashes))
         return dashes, empty_dashes
 
