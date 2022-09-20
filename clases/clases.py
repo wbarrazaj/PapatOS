@@ -3,6 +3,7 @@ import psutil
 import platform
 from modulos.funciones import print_ , bytes2human , printlog, get_size
 from datetime import datetime
+import subprocess
 import unittest
 class Procesos:
     pass
@@ -127,11 +128,13 @@ class Server:
 
 
     def vmstat(stat):
-        out = os.system("vmstat -s")
-        for line in str(out.split("\n")):
+        out = subprocess.check_output("vmstat -v")
+        for line in out.split("\n"):
             out.__dict__()
             line = line.strip()
             if stat in line:
                 return int(line.split(' ')[0])
         raise ValueError("can't find %r in 'vmstat' output" % stat)
+
+
 
