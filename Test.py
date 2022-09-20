@@ -16,7 +16,7 @@ Servidor = Server()
 
 #Servidor.uso_Red()
 
-#Servidor.vmstat()
+Servidor.vmstat()
 
 print("Termino")
 print()
