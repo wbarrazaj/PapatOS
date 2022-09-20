@@ -8,9 +8,9 @@ from clases.clases import Server
 
 Servidor = Server()
 
-Servidor.print_Server()
+#Servidor.print_Server()
 
-Servidor.uso_Memoria()
+#Servidor.uso_Memoria()
 
 #Servidor.uso_Disco()
 
