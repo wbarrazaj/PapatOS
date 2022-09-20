@@ -128,7 +128,7 @@ class Server:
 
 
     def vmstat(stat):
-        out = subprocess.check_output("vmstat -v")
+        out = subprocess.check_output("vmstat ")
         for line in out.split("\n"):
             print(line)
             if stat in line:
