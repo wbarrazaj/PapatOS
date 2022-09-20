@@ -128,7 +128,7 @@ class Server:
 
 
     def vmstat(stat):
-        out = subprocess.check_output("vmstat ")
+        out = subprocess.check_output("vmstat",check=True)
         print(out.decode("utf-8"))
         
 #        for line in out.split("\n"):
