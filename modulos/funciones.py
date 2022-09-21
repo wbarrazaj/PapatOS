@@ -52,9 +52,8 @@ def get_size(bytes, suffix="B"):
             return f"{bytes:.2f}{unit}{suffix}"
         bytes /= factor
 
-
+#FUNCION PARA CALCULO DE PORCENTAJE DE USO 
 def usage_percent(used, total, round_=None):
-    """Calculate percentage usage of 'used' against 'total'."""
     try:
         ret = (float(used) / total) * 100
     except ZeroDivisionError:
