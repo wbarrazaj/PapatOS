@@ -128,14 +128,11 @@ class Server:
 
 
     def vmstat(stat):
-        out = subprocess.check_output("vmstat -s",check=True)
-        print(out.decode("utf-8"))
-        
-#        for line in out.split("\n"):
-#            print(line)
-#            if stat in line:
-#                return int(line.split(' ')[0])
-#        raise ValueError("can't find %r in 'vmstat' output" % stat)
-
-
+        out = sh("vmstat -s")
+        for line in out.split("\n"):
+            line = line.strip()
+            if stat in line:
+                return int(line.split(' ')[0])
+        raise ValueError("can't find %r in 'vmstat' output" % stat)
+  
 
