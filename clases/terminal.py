@@ -56,6 +56,10 @@ class style:
 def printc(color, message):
     print(color + message + style.ResetAll)
 
+def colored(r, g, b, text):
+    return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
+  
+
 # color which we print or import
 
 printc(style.Cyan + style.Bold, sys.argv[1])
@@ -65,3 +69,5 @@ printc(style.Red + style.Underlined, sys.argv[1])
 print()
 printc(style.BackgroundLightBlue, sys.argv[1])
 print(style.LightMagenta + "Hello, " + style.BackgroundRed +"World!" + style.ResetAll)
+
+print(colored(150, 34, 123, "Hola a Todos"))
